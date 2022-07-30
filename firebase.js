@@ -1,0 +1,28 @@
+const { initializeApp,cert } = require('firebase-admin/app');
+const { getFirestore } = require('firebase-admin/firestore');
+
+
+const firebaseConfig = {
+  "type": "service_account",
+  "project_id": "smart-notice-99ccf",
+  "private_key_id": "138dcaafdade8f3308588d7cf081192876411743",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDYnpVGcxz/rTuj\nccVisgcugYK/gPbvKr3l7iV2a0WnfCvdVJajhWqA+ruBdqSJJk+/rVK7vaFAzpju\nQwgAy63jckuI0PEZiINQkPer5L8ysDAnuYKaYMaIxCrfC47PIdWLym8T76JmS378\nBbGKtWFP0xa3rFWH4ppRY8SpwBN6BNCXVHezg8c0TcItBOMGCyoKCtiwj5hz1zEI\ntCG1Tc8S6WB1f98twixt3O9P8wnG6Zr4h3CbMnCapkiSNvPZf8uDzB8rqYeR7dxb\nHy1T1M0fofxhq2YwNTu5q0y2LcFa3ioDmM33AFGArPuLpDQQw3cxmJ8BAJUybeSI\nRfCketVZAgMBAAECggEAG6zfG3oXiV7jkLU3Z62hF0L6pmbepZ3LVzX+2UtJQeWu\nYP+uo0OnYMUn8Zlr2g3oAHAvcsb+dB4xEbfErP1YwQdYOSmgtAdp54At9GssNlim\nPl0IH5sfoleVtptuam5DLzH00RI7qGAa4C4GCde0kBNDAsJkxxCfcKiTdrCQjHUW\n2JusgisBWEgVRYoTtYz38m/mAoiVfdDlnO8xc3JrM2KM360xxsiKgrpeITE3q8NO\nExitKKgDZkpbsvsMBFezK0HNZi4I7x34ce9nzgbbmpSOArN6ouXxhv4aBz85lghg\n8GVxJogIB8J4ly7XCmLCi/kl81SEwKdhZIkVvyAQUQKBgQDtWAzPHjKNhMU81808\nDa+E+cQC+5cd6Y/TGNuYGmxuIGHV/R+64hxCAEg7TwEvO4O/iVxPwrsgPoKVwKpk\nYiTlXTEw/PULbuQBNM0adp6SFlZOhVJlk6dXCFWWywbwUZ+wDzAMHh93qI/qVCGg\nyKdADyv8A3YGsW8MJlAJWoekRQKBgQDppYFJr1ncuwQlpXb232N05Xon2Oh09p9w\nWQ76lrIXPQQ3NYHSLFSEfAvbLttiuUp3qFHbvLL+WZQfAt+ZydqIIrkeL1V0u7Mh\nMtxW4QtBE5/8RsMtXGwA+d5ojfPyHBwM5wlZIWU4oaUku+JjjEwgq58OahjJWr4l\n8+C8wNwgBQKBgHU/NPywJzr/5su6s5lCDX38QJdUn/9X3QPkWL6X9w6kEpC6fY09\nm8YDC6u4yJYDqX7aJW8FfJleJ/ZAeiwiy6U+10ki/Q6L1ji+U8AJ7yWtwS8C74Rc\nX6M/68AVRbU8LU21AwBJdTQQYh/ZNc+OsAiWNh1FvG1sA7aVyp4ESdOdAoGBAItQ\nUR/De5x+soFUAPRAzMe10LmTvz+GkhjmMWU/l579ldbpg6fzIM4CPPuLG+rourtQ\nVMbl5AB/Hy/CgdrsHe6QbbrO1HCPPsbr0a/H7fL2pa1B8DzK3+dRFclX4v4Yvqz+\n0Xcgz38N+y9FDD75N6c/Tc7FelQNVFXC7dz+TgKVAoGBAM/GJD53dt8LtKZzZGMx\n7XNYnWdyDTHEhHsQEPI178PO3SvoEh15sDsOjImI+44OMPJoWCmuPkxbMxQQevjU\n2CNLvwF1sILk2lFF4hFYt5TMY3xlkk33DzhlRMd2s0BwOr6OC186n1Yu4+ChFT89\n0SZ5JNk+npg0aHfB0pZgFdXM\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-b4z9i@smart-notice-99ccf.iam.gserviceaccount.com",
+  "client_id": "112980086701206013182",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-b4z9i%40smart-notice-99ccf.iam.gserviceaccount.com"
+}
+;
+  
+  initializeApp({
+    credential: cert(firebaseConfig)
+  });
+const db = getFirestore();
+
+module.exports.notice = db.collection('notice')
+
+
+
+
