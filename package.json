@@ -15,6 +15,7 @@
     "firebase": "^9.9.1",
     "firebase-admin": "^11.0.0",
     "method-override": "^3.0.0",
+    "mongoose": "^6.5.0",
     "uuid": "^8.3.2"
   }
 }
